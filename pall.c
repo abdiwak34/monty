@@ -1,6 +1,4 @@
-
-<<<<<<< HEAD
-=======
+#include "monty.h"
 /**
  * f_pall - prints the stack
  * @head: stack head
@@ -21,5 +19,3 @@ void f_pall(stack_t **head, unsigned int counter)
 		h = h->next;
 	}
 }
-
->>>>>>> 8db8461ccb368460a03b915dd651503f65eabf47
