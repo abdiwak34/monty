@@ -16,6 +16,13 @@ void pint(const Stack *stack, int line_number) {
     }
     printf("%d\n", stack->stack[stack->top - 1]);
 }
+void pop(Stack *stack, int line_number) {
+    if (stack->top == 0) {
+        fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+    stack->top--;
+}
 int main(int argc, char *argv[]) {
     char line[256];
     int line_number = 0;
@@ -50,6 +57,9 @@ int main(int argc, char *argv[]) {
 	if (strcmp(line, "pint") == 0) {
    	 pint(&stack, line_number);
 	}
+	    if (strcmp(line, "pop") == 0) {
+    pop(&stack, line_number);
+}
        
 
         if (sscanf(line, "%15s %d", opcode, &argument) == 2) {
