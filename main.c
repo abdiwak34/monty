@@ -9,6 +9,13 @@ void push(Stack *stack, int value, int line_number) {
     }
     stack->stack[stack->top++] = value;
 }
+void pint(const Stack *stack, int line_number) {
+    if (stack->top == 0) {
+        fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+        exit(EXIT_FAILURE);
+    }
+    printf("%d\n", stack->stack[stack->top - 1]);
+}
 int main(int argc, char *argv[]) {
     char line[256];
     int line_number = 0;
@@ -40,7 +47,9 @@ int main(int argc, char *argv[]) {
         if (strlen(line) == 0) {
             continue;
         }
-
+	if (strcmp(line, "pint") == 0) {
+   	 pint(&stack, line_number);
+	}
        
 
         if (sscanf(line, "%15s %d", opcode, &argument) == 2) {
