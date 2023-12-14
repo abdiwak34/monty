@@ -1,8 +1,23 @@
 #include "monty.h"
 
-void pall(const Stack *stack) {
-    int i;
-    for (i = stack->top - 1; i >= 0; i--) {
-        printf("%d\n", stack->stack[i]);
-    }
+/**
+ * f_pall - prints the stack
+ * @head: stack head
+ * @counter: no used
+ * Return: no return
+ */
+void f_pall(stack_t **head, unsigned int counter)
+{
+	stack_t *h;
+	(void)counter;
+
+	h = *head;
+	if (h == NULL)
+		return;
+	while (h)
+	{
+		printf("%d\n", h->n);
+		h = h->next;
+	}
 }
+
