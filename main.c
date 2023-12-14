@@ -1,12 +1,11 @@
 #include "monty.h"
 
 int main(int argc, char *argv[]) {
+    char line[256];
      char *file_path = argv[1];
     FILE *file = fopen(file_path, "r");
      Stack stack;
     stack.top = 0;
-
-    char line[256];
     int line_number = 0;
      char opcode[16];
         int argument;
