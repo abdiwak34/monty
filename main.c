@@ -1,7 +1,7 @@
 #include "monty.h"
 
 
-void push(Stack *stack, int value) {
+void push(Stack *stack, int value, int line_number) {
     if (stack->top == MAX_STACK_SIZE) {
         fprintf(stderr, "Error: malloc failed\n");
         exit(EXIT_FAILURE);
@@ -10,13 +10,14 @@ void push(Stack *stack, int value) {
 }
 int main(int argc, char *argv[]) {
     char line[256];
+    int line_number = 0;
+    char opcode[16];
+    int argument;
      char *file_path = argv[1];
     FILE *file = fopen(file_path, "r");
      Stack stack;
     stack.top = 0;
-    int line_number = 0;
-     char opcode[16];
-        int argument;
+  
     if (argc != 2) {
         fprintf(stderr, "USAGE: monty file\n");
         exit(EXIT_FAILURE);
